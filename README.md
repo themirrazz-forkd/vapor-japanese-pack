@@ -22,15 +22,15 @@ A notification will appear if a software update is availible, and you will be ab
 
 ## 2.0.8 Offical Command List
 Full list of upcoming commands in Vapor 2.0.8 (Pre-Release)
-* `/me <text>` - Describe yourself.
-* `/invite <userid>` - invite a user to the current room
-* `/kick <userid>` - kick user from the current room
+* `/watashi <text>` - Describe yourself.
+* `/inbaitto <userid>` - invite a user to the current room
+* `/kikku <userid>` - kick user from the current room
 * `/ban <userid>` - ban user from the current room
-* `/unban <userid>` - unban user from the current room
-* `/upload <path>` - uploads and sends a file
-* `/uploadimage <path>` - uploads and sends a file as an image
-* `/call` - starts a voice call
-* `/videocall` - starts a voice call and enables your camera
+* `/anban <userid>` - unban user from the current room
+* `/appurodo <path>` - uploads and sends a file
+* `/fotoappurodo <path>` - uploads and sends a file as an image
+* `/caru` - starts a voice call
+* `/bideocaru` - starts a voice call and enables your camera
 * `/plain <content>` - doesn't format your messagge
 * `/html <content>` - sends HTML formatted content
 

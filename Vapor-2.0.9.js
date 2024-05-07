@@ -641,7 +641,7 @@ Choose wether your room will be public or private<br>
 <div class="matrix96-msg-input" style="width:100%; display: none;flex-direction:row;height:fit-content !important;">
 <div class="mrx96-cmd-autofill">
 </div>
-<button class="matrix96-upload-button mrx96-button">File</button>
+<button class="matrix96-upload-button mrx96-button">ファイル</button>
 <button class="matrix96-img-button mrx96-button">Img</button>
 <textarea style="width:100%;max-height:300px;overflow-x:hidden;word-break:break-word;overflow-y:auto;outline:none;resize:none;font-size:16px;" class='matrix96-inpb'></textarea>
 <button class="matrix96-send-button mrx96-button">Send</button>
@@ -678,18 +678,19 @@ top:0px;left:0px;
         this.closed=true;
     }
     if ($WIN) {
-        sw.setTitle("Login to Vapor");
+        sw.setTitle("log in to vapor");
         sw.wndObject.querySelector(".matrix96-app-container").style.display = 'none';
         sw.wndObject.querySelector(".matrix96-login-page").style.display = '';
     }
     if(!$WIN) {
-        checkForUpdates(sw);
+        // Vapor is now retired and only recieving language updates
+        /*checkForUpdates(sw);
         var $CUPI=setInterval(function () {
             if(sw.closed) {
                 return clearInterval($CUPI)
             }
             checkForUpdates(sw);
-        },120000);
+        },120000);*/
     }
     sw.show()
     var bdy = sw.wndObject;
@@ -1020,11 +1021,11 @@ top:0px;left:0px;
     if (!sw.__menubar) {
         var b$ = new w96.ui.MenuBar();
         b$.addRoot(
-            'File',
+            'ファイル',
             [
                 {
                     type: 'normal',
-                    label: 'Sign Out',
+                    label: 'ログアウト',
                     onclick: function () {
                         if(inCall){
                             try{
@@ -1041,14 +1042,14 @@ top:0px;left:0px;
                 },
                 {
                     type: 'normal',
-                    label: 'Create room...',
+                    label: 'ルームを作る...',
                     onclick: function () {
                         resetNewRoomWiz(sw);
                     }
                 },
                 {
                     type: 'normal',
-                    label: 'Leave room',
+                    label: 'ルームを離れる',
                     onclick: function () {
                         if (!roomInfo.on) { return }
                         showLeavePrompt(
@@ -1059,7 +1060,7 @@ top:0px;left:0px;
                 },
                 {
                     type: 'normal',
-                    label: 'Room info',
+                    label: 'ルームの情報',
                     onclick: function () {
                         if (!roomInfo.on) { return }
                         updateRoomInfo(
@@ -1070,7 +1071,7 @@ top:0px;left:0px;
                 },
                 {
                     type: 'normal',
-                    label: 'Upload Pfp',
+                    label: 'Pfpをアップロードする',
                     onclick: function () {
                         showUploadAvatarPrompt();
                     }
@@ -1166,8 +1167,8 @@ top:0px;left:0px;
                 );
             }
         },
-        "me": {
-            name: 'me',
+        "watashi": {
+            name: 'watashi',
             usage: '<action>',
             about: 'Describe yourself',
             exec: async function (args) {
@@ -1209,8 +1210,8 @@ top:0px;left:0px;
                 )
             }
         },
-        "unban": {
-            name: 'unban',
+        "anban": {
+            name: 'anban',
             usage: '<userid>',
             about: 'Unbans a user that has been banned.',
             exec: async function (args) {
@@ -1220,8 +1221,8 @@ top:0px;left:0px;
                 )
             }
         },
-        "kick": {
-            name: 'kick',
+        "kikku": {
+            name: 'kikku',
             usage: '<userid>',
             about: 'Kicks a user out of the room.',
             exec: async function (args) {
@@ -1231,8 +1232,8 @@ top:0px;left:0px;
                 )
             }
         },
-        'invite': {
-            name: 'invite',
+        'inbaitto': {
+            name: 'inbaitto',
             usage: '<userid>',
             about: "Invites a user to the room.",
             exec: async function (args) {
@@ -1242,8 +1243,8 @@ top:0px;left:0px;
                 )
             }
         },
-        'upload': {
-            name: 'upload',
+        'appurodo': {
+            name: 'appurodo',
             usage: '<fullpath>',
             about: 'Uploads a file from your computer.',
             exec: async function (args) {
@@ -1282,8 +1283,8 @@ top:0px;left:0px;
                 })
             }
         },
-        'uploadimage': {
-            name: 'uploadimage',
+        'fotoappurodo': {
+            name: 'fotoappurodo',
             usage: '<fullpath>',
             about: 'Uploads a file from your computer as an image.',
             exec: async function (args) {
@@ -1291,14 +1292,14 @@ top:0px;left:0px;
                 if(!ex) {
                     alert("Cannot find the file!", {
                         icon: 'error',
-                        title: 'Upload failed'
+                        title: 'アップロードは失敗かったです'
                     })
                     return null
                 }
                 if(!(await w96.FS.isFile(args))) {
                     alert("Cannot upload of type 'folder'", {
                         icon:'error',
-                        title: 'Upload Failed'
+                        title: 'アップロードは失敗かったです'
                     });
                     return null
                 }
@@ -1315,7 +1316,7 @@ top:0px;left:0px;
                 if(!isAllowedType){
                     alert("Only images can be uploaded. To upload a file, use '/upload'", {
                         icon: 'error',
-                        title: 'Upload Failed'
+                        title: 'アップロードは失敗かったです'
                     });
                     return null;
                 }
@@ -1339,8 +1340,8 @@ top:0px;left:0px;
                 })
             }
         },
-        "call": {
-            name: "call",
+        "caru": {
+            name: "caru",
             usage: "",
             about: "Places a call in the current room.",
             exec: async function (args) {
@@ -1348,8 +1349,8 @@ top:0px;left:0px;
                 placeCall(roomInfo.id,false)
             }
         },
-        "videocall": {
-            name: "videocall",
+        "bideocaru": {
+            name: "bideocaru",
             usage: "",
             about: "Places a video call in the current room.",
             exec: async function (args) {
